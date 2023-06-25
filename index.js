@@ -96,6 +96,44 @@ const pays = "";
 
 // les boucles: while; do...while; et for
 
-for (let i = 0; i < 10; i++) {
-  console.log("DIGNE " + i);
+// boucle de parcourt de tableau ou d'iteration(repetition) sont les 2 cas d'utilisation de la boucle for
+const notes = [12, 13, 15, 9];
+for (let i = 0; i < notes.length; i++) {
+  //   console.log(i);
 }
+// une autre maniere de parcourir les indexs et peut aussi etre utiliser pour un objet
+const notess = [14, 11, 18, 4];
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+};
+for (let i in notess) {
+  //   console.log(notess[i]);
+}
+// le for of ne va marché que sur des choses iterable comme les array et pas sur les objets qui marche avec le for in
+// for (let notes of person) {
+//     console.log(notes);
+// }
+const personn = "anticonstitutionnalite";
+for (let letter of personn) {
+  //   console.log(letter);
+}
+
+// let chiffres = prompt("veuillez entrer le chiffre svp !");
+if (chiffres > 10 || chiffres < 0) {
+  //   console.log("le nombre n'est pas entre 0 et 10");
+} else {
+  while (chiffres >= 0) {
+    // console.log(chiffres);
+    chiffres--;
+  }
+}
+let chifre;
+let guess = 8;
+while (chifre !== guess) {
+  //   chifre = prompt("votre chiffre") * 1;
+  if (chifre !== guess) {
+    console.log("veuiller reessayer");
+  }
+}
+console.log("felicitation ! vous etes un crack");
