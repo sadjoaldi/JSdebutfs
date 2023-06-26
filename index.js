@@ -1,6 +1,4 @@
-// alert ("heure de prière");
-// console.log("coucou");
-
+// *****LES VARIABLES*********
 // const prenom = "mariame";
 // const nom = " diallo";
 // const nomFamille = prenom + nom;
@@ -16,8 +14,6 @@ let agent = "surveille : " + bioblio;
 // à chaque fois qu'il y a des crochets [] c'est qui'l sagit d'un tableau.
 let personne = ["je", "suis", 18, false];
 
-// console.log(array);
-
 // pour les objets, ce sont des accolades {}; et un objet a deux parametres : une clé (exple: prenom) et une valeur(exple: alhassane);
 
 let objet = {
@@ -25,8 +21,6 @@ let objet = {
   ville: "tours",
   age: 50,
 };
-
-// console.log(objet);
 
 // opérateurs:
 // console.log(8*9);
@@ -45,17 +39,10 @@ let objet = {
 //    alert ("l'inverse");
 // }
 
-// les fonction classique
-function faireQuelqueChose() {}
+// ******LES CONDITIONS********
+//  cas du switch: permet de mettre une condition sur une variable particulière. Donc elle permet de verifier qu'une variable a différentes valeurs
 
-// faireQuelqueChose();
-
-// les fonction flechées
-let operation = () => {};
-
-// les conditions:  cas du switch: permet de mettre une condition sur une variable particulière. Donc elle permet de verifier qu'une variable a différentes valeurs
-
-const pays = "";
+// const pays = "";
 
 // switch (pays) {
 //   case "FR":
@@ -94,7 +81,7 @@ const pays = "";
 // }
 // console.log(`${a}x${b}=${result} est ${signe}`);
 
-// les boucles: while; do...while; et for
+// ********LES BOUCLES: while; do...while; et for**********
 
 // boucle de parcourt de tableau ou d'iteration(repetition) sont les 2 cas d'utilisation de la boucle for
 const notes = [12, 13, 15, 9];
@@ -120,20 +107,152 @@ for (let letter of personn) {
 }
 
 // let chiffres = prompt("veuillez entrer le chiffre svp !");
-if (chiffres > 10 || chiffres < 0) {
-  //   console.log("le nombre n'est pas entre 0 et 10");
-} else {
-  while (chiffres >= 0) {
-    // console.log(chiffres);
-    chiffres--;
+// if (chiffres > 10 || chiffres < 0) {
+//   console.log("le nombre n'est pas entre 0 et 10");
+// } else {
+//   while (chiffres >= 0) {
+//     console.log(chiffres);
+//     chiffres--;
+//   }
+// }
+
+// ****LES FONCTIONS***********
+// les fonctions sont un type d'objet particulier
+// les fonction classique
+function canDrive(age, pays) {
+  if ((age >= 18 && pays === "FR") || (age >= 16 && pays === "US")) {
+    return true;
   }
+  return false;
 }
-let chifre;
-let guess = 8;
-while (chifre !== guess) {
-  //   chifre = prompt("votre chiffre") * 1;
-  if (chifre !== guess) {
-    console.log("veuiller reessayer");
+
+// les fonction flechées
+const maFonction = () => {};
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * (max + 1));
+}
+
+// nombre aleatoire en JS
+// const solution = getRandomInt(10);
+// console.log(solution);
+
+// function isRight(n) {
+//   return solution === n;
+// }
+
+// function guess() {
+//   const number = prompt("choisir un chiffre") * 1;
+//   return isRight(number);
+// }
+
+// for (i = 0; i < 3; i++) {
+//   if (guess()) {
+//     console.log("bravo");
+//     break;
+//   } else if (i === 2) {
+//     console.log("vous avez perdu");
+//   }
+// }
+
+// exo 2 sur les nombres premiers
+
+// function isPremier(n) {
+//   for (let i = n - 1; i > 1; i--);
+//   console.log(i);
+// }
+
+// console.log(isPremier(0));
+// console.log(isPremier(1));
+// console.log(isPremier(2));
+// console.log(isPremier(3));
+// console.log(isPremier(11));
+// console.log(isPremier(12));
+function isPremier(n) {
+  if (n < 2) {
+    return false;
   }
+  // On parcours tous les nombres de n jusqu'à 2 dans la variable i
+  for (let i = n - 1; i > 1; i--) {
+    // On regarde si le nombre est divisible par i
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
-console.log("felicitation ! vous etes un crack");
+
+// function isPalindrome(word) {
+//   const letters = word.split("");
+//   letters.reverse();
+//   const reversedWord = letters.join("");
+//   console.log(reversedWord);
+//   return word.toUpperCase() === reversedWord;
+// }
+
+// const words = {
+//   Kayak: true,
+//   SOS: true,
+//   kayak: true,
+//   bonjour: false,
+// };
+// for (let word in words) {
+//   if (isPalindrome(word) !== words[word])
+//     console.error(`isPalendrome(${word})`);
+// }
+
+const students = [
+  {
+    name: "John",
+    notes: [1, 20, 18, 19, 12],
+  },
+  {
+    name: "Jane",
+    notes: [17, 18, 20, 13, 15],
+  },
+  {
+    name: "Sophie",
+    notes: [17, 12, 14, 15, 13],
+  },
+  {
+    name: "Marc",
+    notes: [2, 3, 5, 8, 9],
+  },
+  {
+    name: "Manon",
+    notes: [18, 17, 18, 19, 12],
+  },
+];
+function calculerMoyenne(students) {
+  let somme = 0;
+  for (let i = 0; i < students.length; i++) {
+    somme += students[i];
+  }
+  let moyenne = somme / students.length;
+  return moyenne;
+}
+
+let monTableau = [
+  {
+    name: "John",
+    notes: [1, 20, 18, 19, 12],
+  },
+  {
+    name: "Jane",
+    notes: [17, 18, 20, 13, 15],
+  },
+  {
+    name: "Sophie",
+    notes: [17, 12, 14, 15, 13],
+  },
+  {
+    name: "Marc",
+    notes: [2, 3, 5, 8, 9],
+  },
+  {
+    name: "Manon",
+    notes: [18, 17, 18, 19, 12],
+  },
+];
+let maMoyenne = calculerMoyenne(monTableau);
+console.log(maMoyenne); // affiche 6
