@@ -201,7 +201,7 @@ function isPremier(n) {
 //     console.error(`isPalendrome(${word})`);
 // }
 
-const students = [
+/*const students = [
   {
     name: "John",
     notes: [1, 20, 18, 19, 12],
@@ -230,21 +230,27 @@ const moyenne = (notes) => {
     sum = sum + note;
   }
   return sum / notes.length;
+};*/
+
+/*const compareStudents = (a, b) => {
+  return b.moyenne - a.moyenne;
 };
+
 for (let student of students) {
   student.moyenne = moyenne(student.notes);
+  student.worst = Math.min(...student.notes);
+  student.best = Math.max(...student.notes);
 }
-console.log(students);
 
-// function calculerMoyenne(students) {
-//   let somme = 0;
-//   for (let i = 0; i < students.length; i++) {
-//     somme += students[i];
-//   }
-//   let moyenne = somme / students.length;
-//   return moyenne;
-// }
+students.sort(compareStudents);
 
-// let monTableau = [2, 4, 6, 8, 10];
-// let maMoyenne = calculerMoyenne(monTableau);
-// console.log(maMoyenne); // affiche 6
+const formatStudent = (student) => {
+  return `${student.name} avec une moyenne de ${student.moyenne}, meilleur note (${student.best}), pire note (${student.wor})
+  `;
+};
+
+console.log(`Top 3 etudiants
+1:${formatStudent(students[0])} 
+2:${formatStudent(students[1])} 
+3:${formatStudent(students[2])} 
+`);*/
