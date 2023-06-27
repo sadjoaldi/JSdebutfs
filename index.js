@@ -223,36 +223,28 @@ const students = [
     notes: [18, 17, 18, 19, 12],
   },
 ];
-function calculerMoyenne(students) {
-  let somme = 0;
-  for (let i = 0; i < students.length; i++) {
-    somme += students[i];
-  }
-  let moyenne = somme / students.length;
-  return moyenne;
-}
 
-let monTableau = [
-  {
-    name: "John",
-    notes: [1, 20, 18, 19, 12],
-  },
-  {
-    name: "Jane",
-    notes: [17, 18, 20, 13, 15],
-  },
-  {
-    name: "Sophie",
-    notes: [17, 12, 14, 15, 13],
-  },
-  {
-    name: "Marc",
-    notes: [2, 3, 5, 8, 9],
-  },
-  {
-    name: "Manon",
-    notes: [18, 17, 18, 19, 12],
-  },
-];
-let maMoyenne = calculerMoyenne(monTableau);
-console.log(maMoyenne); // affiche 6
+const moyenne = (notes) => {
+  let sum = 0;
+  for (let note of notes) {
+    sum = sum + note;
+  }
+  return sum / notes.length;
+};
+for (let student of students) {
+  student.moyenne = moyenne(student.notes);
+}
+console.log(students);
+
+// function calculerMoyenne(students) {
+//   let somme = 0;
+//   for (let i = 0; i < students.length; i++) {
+//     somme += students[i];
+//   }
+//   let moyenne = somme / students.length;
+//   return moyenne;
+// }
+
+// let monTableau = [2, 4, 6, 8, 10];
+// let maMoyenne = calculerMoyenne(monTableau);
+// console.log(maMoyenne); // affiche 6
