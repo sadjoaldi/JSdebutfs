@@ -254,3 +254,9 @@ console.log(`Top 3 etudiants
 2:${formatStudent(students[1])} 
 3:${formatStudent(students[2])} 
 `);*/
+
+// exo 2:
+const phrase = `Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres. `;
+const frenquencies = {};
+const words = phrase.split(" ");
+console.log(words);
