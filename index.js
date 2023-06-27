@@ -241,6 +241,7 @@ for (let student of students) {
   student.worst = Math.min(...student.notes);
   student.best = Math.max(...student.notes);
 }
+// La fonction sort() en JavaScript est une méthode qui permet de trier les éléments d'un tableau dans l'ordre lexicographique par défaut. Elle peut également trier les éléments dans un ordre personnalisé en utilisant une fonction de comparaison en tant que paramètre. 
 
 students.sort(compareStudents);
 
@@ -258,12 +259,23 @@ console.log(`Top 3 etudiants
 // exo 2:
 const phrase = `Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres. `;
 const frenquencies = {};
-const words = phrase.replace(",", "").toLowerCase().split(" ");
+const words = phrase.replaceAll(",", "").toLowerCase().split(" ");
 for (let word of words) {
-  if (frenquencies[word]) {
+  if (word !== "") {
     frenquencies[word]++;
   } else {
     frenquencies[word] = 1;
   }
 }
-console.log(frenquencies);
+
+const frequenciesArray = [];
+for (let k in frenquencies) {
+  frequenciesArray.push({
+    word: k,
+    count: frenquencies[k],
+  });
+}
+frequenciesArray.sort((a, b) => b.count - a.count);
+console.log(
+  `les mots les plus frequents sont "${frequenciesArray[0].word}","${frequenciesArray[1].word}", "${frequenciesArray[2].word}",`
+);
