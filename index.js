@@ -257,25 +257,63 @@ console.log(`Top 3 etudiants
 `);*/
 
 // exo 2:
-const phrase = `Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres. `;
-const frenquencies = {};
-const words = phrase.replaceAll(",", "").toLowerCase().split(" ");
-for (let word of words) {
-  if (word !== "") {
-    frenquencies[word]++;
-  } else {
-    frenquencies[word] = 1;
+// const phrase = `Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres. `;
+// const frenquencies = {};
+// const words = phrase.replaceAll(",", "").toLowerCase().split(" ");
+// for (let word of words) {
+//   if (word !== "") {
+//     frenquencies[word]++;
+//   } else {
+//     frenquencies[word] = 1;
+//   }
+// }
+
+// const frequenciesArray = [];
+// for (let k in frenquencies) {
+//   frequenciesArray.push({
+//     word: k,
+//     count: frenquencies[k],
+//   });
+// }
+// frequenciesArray.sort((a, b) => b.count - a.count);
+// console.log(
+//   `les mots les plus frequents sont "${frequenciesArray[0].word}","${frequenciesArray[1].word}", "${frequenciesArray[2].word}",`
+// );
+
+// *****LES CLASSES ET LA POO*****
+
+/*PROTOTYPE: En JavaScript, le prototype est un mécanisme qui permet à un objet de référencer un autre objet qui sert de modèle pour les propriétés et les méthodes. Chaque objet en JavaScript a un prototype, qui peut être utilisé pour hériter des propriétés et des méthodes d'un autre objet.
+Le prototype est accessible via la propriété __proto__ de l'objet, mais il est recommandé d'utiliser la méthode Object.getPrototypeOf() pour accéder au prototype :*/
+
+/*PROPRIETE :En JavaScript, une propriété est une valeur associée à une clé dans un objet. Les propriétés peuvent être des valeurs primitives (chaînes de caractères, nombres, booléens, etc.) ou des objets eux-mêmes.
+On peut accéder aux propriétés d'un objet en utilisant la notation pointée ou la notation crochet :*/
+
+/*METHODE: En JavaScript, une méthode est une fonction associée à un objet. Les méthodes sont des propriétés d'un objet dont la valeur est une fonction.
+
+On peut définir une méthode en utilisant la syntaxe d'objet littéral :*/
+
+/*OBJET: En JavaScript, un objet est une collection de propriétés qui peut contenir des valeurs primitives (chaînes de caractères, nombres, booléens, etc.) ou d'autres objets. Les objets sont créés en utilisant la syntaxe d'objet littéral ou en utilisant la syntaxe de classe.
+
+Voici un exemple d'objet créé en utilisant la syntaxe d'objet littéral :*/
+
+// fonctionnement du systeme d'heritage en js:
+// str(objet courant) >> String.prototype >> Object.prototype
+
+class Student {
+  ecole = "Jule ferry";
+
+  constructor(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+  }
+
+  setNotes(notes) {
+    this.notes = notes;
   }
 }
 
-const frequenciesArray = [];
-for (let k in frenquencies) {
-  frequenciesArray.push({
-    word: k,
-    count: frenquencies[k],
-  });
-}
-frequenciesArray.sort((a, b) => b.count - a.count);
-console.log(
-  `les mots les plus frequents sont "${frequenciesArray[0].word}","${frequenciesArray[1].word}", "${frequenciesArray[2].word}",`
-);
+const john = new Student("John", "Doe");
+const jane = new Student("Jane", "Doe");
+john.setNotes([10, 10, 9]);
+jane.setNotes([15, 18, 19]);
+console.log(john, jane);
