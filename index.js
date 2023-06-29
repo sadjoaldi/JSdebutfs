@@ -299,44 +299,35 @@ Voici un exemple d'objet créé en utilisant la syntaxe d'objet littéral :*/
 // fonctionnement du systeme d'heritage en js:
 // str(objet courant) >> String.prototype >> Object.prototype
 
-class Student {
-  ecole = "Jule ferry";
+// class Student {
+//   ecole = "Jule ferry";
 
-  constructor(firstname, lastname) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-  }
+//   constructor(firstname, lastname) {
+//     this.firstname = firstname;
+//     this.lastname = lastname;
+//   }
 
-  setNotes(notes) {
-    this.notes = notes;
-  }
-  get name() {
-    return `${this.firstname} ${this.lastname}`;
-  }
+//   setNotes(notes) {
+//     this.notes = notes;
+//   }
+//   get name() {
+//     return `${this.firstname} ${this.lastname}`;
+//   }
 
-  canPass() {
-    return moyenne(this.notes) >= 10;
-  }
+//   canPass() {
+//     return moyenne(this.notes) >= 10;
+//   }
 
-  static moyenne = 0;
-}
+//   static moyenne = 0;
+// }
 
-class superStuden extends Student {}
+// class superStuden extends Student {}
 
-const john = new Student("John", "Doe");
-const jane = new Student("Jane", "Doe");
-john.setNotes([10, 10, 9]);
-jane.setNotes([15, 18, 19]);
-console.log(john.canPass(), jane.canPass());
-
-const r = new Rectangle(10, 20);
-console.log(r.perimeter);
-console.log(r.isValid);
-const r2 = new Rectangle(-10, 20);
-console.log(r2.isValid);
-const c = new Square(10);
-console.log(c.perimeter);
-console.log(r.isBiggerThan(c));
+// const john = new Student("John", "Doe");
+// const jane = new Student("Jane", "Doe");
+// john.setNotes([10, 10, 9]);
+// jane.setNotes([15, 18, 19]);
+// console.log(john.canPass(), jane.canPass());
 
 class Rectangle {
   constructor(width, height) {
@@ -356,9 +347,55 @@ class Rectangle {
     return this.perimeter > shape.perimeter;
   }
 }
-
 class Square extends Rectangle {
   constructor(width) {
     super(width, width);
   }
 }
+
+const r = new Rectangle(10, 20);
+console.log(r.perimeter);
+console.log(r.isValid);
+const r2 = new Rectangle(-10, 20);
+console.log(r2.isValid);
+const c = new Square(10);
+console.log(c.perimeter);
+console.log(r.isBiggerThan(c));
+
+class Library {
+  #pages = 1;
+  constructor(title, page) {
+    this.title = title;
+    this.page = page;
+  }
+
+  get page() {
+    return this.page;
+  }
+
+  nextPage() {
+    if (this.#pages < this.page) {
+      this.#pages++;
+    }
+  }
+
+  close() {
+    return (this.#pages = 1);
+  }
+}
+
+const b = new Book("Seigneur des anneaux", 200);
+console.log(b.page);
+b.nextPage();
+console.log(b.page);
+b.close();
+console.log(b.page);
+
+const l = new Library();
+l.addBook(b);
+l.addBooks([
+  new Book("Ready player one", 100),
+  new Book("Oui-oui", 10),
+  new Book("Sillage", 50),
+]);
+console.log(l.findBooksByLetter("S"));
