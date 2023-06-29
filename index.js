@@ -310,14 +310,55 @@ class Student {
   setNotes(notes) {
     this.notes = notes;
   }
+  get name() {
+    return `${this.firstname} ${this.lastname}`;
+  }
 
   canPass() {
     return moyenne(this.notes) >= 10;
   }
+
+  static moyenne = 0;
 }
+
+class superStuden extends Student {}
 
 const john = new Student("John", "Doe");
 const jane = new Student("Jane", "Doe");
 john.setNotes([10, 10, 9]);
 jane.setNotes([15, 18, 19]);
 console.log(john.canPass(), jane.canPass());
+
+const r = new Rectangle(10, 20);
+console.log(r.perimeter);
+console.log(r.isValid);
+const r2 = new Rectangle(-10, 20);
+console.log(r2.isValid);
+const c = new Square(10);
+console.log(c.perimeter);
+console.log(r.isBiggerThan(c));
+
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  get perimeter() {
+    return (this.width + this.height) * 2;
+  }
+
+  get isValid() {
+    return this.width > 0 && this.height > 0;
+  }
+
+  isBiggerThan(shape) {
+    return this.perimeter > shape.perimeter;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(width) {
+    super(width, width);
+  }
+}
