@@ -1,10 +1,10 @@
-// *****LES VARIABLES*********
+// *****LES VARIABLES (var, const, let): stockage *********
 // const prenom = "mariame";
 // const nom = " diallo";
 // const nomFamille = prenom + nom;
 // console.log(nomFamille);
 
-// la variable const ne bouge pas ce qui n'est pas le cas de la variable let
+// la variable const ne change pas ce qui n'est pas le cas de la variable let
 
 let ageBebe = "3" + " ans";
 
@@ -14,15 +14,15 @@ let agent = "surveille : " + bioblio;
 // à chaque fois qu'il y a des crochets [] c'est qui'l sagit d'un tableau.
 let personne = ["je", "suis", 18, false];
 
-// pour les objets, ce sont des accolades {}; et un objet a deux parametres : une clé (exple: prenom) et une valeur(exple: alhassane);
+// pour les objets, ce sont des accolades {}; et un objet a deux parametres : une clé (exple: prenom) et une valeur ou propriété(exple: alhassane);
 
-let objet = {
-  prenom: "alhassaen",
-  ville: "tours",
-  age: 50,
-};
+// let objet = {
+//   prenom: "alhassaen",
+//   ville: "tours",
+//   age: 50,
+// };
 
-// opérateurs:
+// opérateurs: +; -; /; *; ++; --; +=; -=; *=; ===; !==.
 // console.log(8*9);
 // console.log(4/88956);
 // console.log(22548+653159);
@@ -39,8 +39,8 @@ let objet = {
 //    alert ("l'inverse");
 // }
 
-// ******LES CONDITIONS********
-//  cas du switch: permet de mettre une condition sur une variable particulière. Donc elle permet de verifier qu'une variable a différentes valeurs
+// ******LES CONDITIONS ou loop (if, else if, else) et OPERATEUR LOGIQUE: &&(et) et ||(ou): permettent de tester quelque chose et d'executer un code si la condition est verifiée********
+//  cas du switch: permet de mettre une condition sur une variable particulière. Donc elle permet de verifier qu'une variable a différentes valeurs. Elle permet de comparer une variable à plusieurs valeurs.
 
 // const pays = "";
 
@@ -81,7 +81,7 @@ let objet = {
 // }
 // console.log(`${a}x${b}=${result} est ${signe}`);
 
-// ********LES BOUCLES: while; do...while; et for**********
+// ********LES BOUCLES: while; do...while; et for (for in et for of)**********
 
 // boucle de parcourt de tableau ou d'iteration(repetition) sont les 2 cas d'utilisation de la boucle for
 const notes = [12, 13, 15, 9];
@@ -168,19 +168,19 @@ function getRandomInt(max) {
 // console.log(isPremier(3));
 // console.log(isPremier(11));
 // console.log(isPremier(12));
-function isPremier(n) {
-  if (n < 2) {
-    return false;
-  }
-  // On parcours tous les nombres de n jusqu'à 2 dans la variable i
-  for (let i = n - 1; i > 1; i--) {
-    // On regarde si le nombre est divisible par i
-    if (n % i === 0) {
-      return false;
-    }
-  }
-  return true;
-}
+// function isPremier(n) {
+//   if (n < 2) {
+//     return false;
+//   }
+//   On parcours tous les nombres de n jusqu'à 2 dans la variable i
+//   for (let i = n - 1; i > 1; i--) {
+//     On regarde si le nombre est divisible par i
+//     if (n % i === 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
 // function isPalindrome(word) {
 //   const letters = word.split("");
@@ -201,7 +201,7 @@ function isPremier(n) {
 //     console.error(`isPalendrome(${word})`);
 // }
 
-/*const students = [
+const students = [
   {
     name: "John",
     notes: [1, 20, 18, 19, 12],
@@ -230,7 +230,7 @@ const moyenne = (notes) => {
     sum = sum + note;
   }
   return sum / notes.length;
-};*/
+};
 
 /*const compareStudents = (a, b) => {
   return b.moyenne - a.moyenne;
@@ -310,10 +310,14 @@ class Student {
   setNotes(notes) {
     this.notes = notes;
   }
+
+  canPass() {
+    return moyenne(this.notes) >= 10;
+  }
 }
 
 const john = new Student("John", "Doe");
 const jane = new Student("Jane", "Doe");
 john.setNotes([10, 10, 9]);
 jane.setNotes([15, 18, 19]);
-console.log(john, jane);
+console.log(john.canPass(), jane.canPass());
